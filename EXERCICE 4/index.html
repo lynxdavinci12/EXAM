@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>SPA</title>
+    <script type="text/javascript" src="getXHR.js"></script>
+</head>
+<body>
+<form action="validation.php" method="post">
+    <div>
+        <label for="name">Prenom : </label>
+        <input type="text" id="name" name="name" minlength="3" maxlength="20" />
+    </div>
+    <div>
+        <label for="age">Age : </label>
+        <input type="text" id="age" name="age" />
+    </div>
+    <div>
+        <label for="couleur">couleurs : </label>
+        <input type="text" id="couleur" name="couleur" minlength="3" maxlength="10" />
+    </div>
+    <div>
+    	<fieldset>
+        <label for="sexe">Sexe : </label>
+        <article>MALE</article>
+        <input type="radio" id="sexe" name="MALE"> </button>
+        <br>
+        <article>FEMMELLE</article>
+        <input type="radio" id="sexe" name="FEMELLE"> </button>
+    	</fieldset>
+    </div>
+    <div>
+        <input type="reset" value="Effacer" />
+        <input type="submit" value="Envoyer" />
+    </div>
+    <div>
+        <p id="validation" ondblclick="sendForm()">Envoyer données</p>
+    </div>
+</form>
+</body>
+</html>

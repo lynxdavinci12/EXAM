@@ -1,0 +1,1 @@
+SELECT * FROM `articles` LEFT JOIN users ON articles.ID = users.Id

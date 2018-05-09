@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>FAISONS LE MENAGE</title>
+    <script type="text/javascript" src="getXHR.js"></script>
+</head>
+<body>
+<form action="validation.php" method="post">
+    <div>
+        <label for="name">MARQUE : </label>
+        <input type="text" id="name" name="name" />
+    </div>
+    <div>
+        <label for="type">MODELE : </label>
+        <input type="text" id="type" name="type" />
+    </div>
+    <div>
+        <label for="years">ANNEE : </label>
+        <input type="text" id="years" name="years" minlength="10" maxlength="10" />
+    </div>
+    <div>
+        <label for="colors">COULEUR : </label>
+        <input type="text" id="colors" name="colors" />
+    </div>
+    <div>
+        <input type="reset" value="Effacer" />
+        <input type="submit" value="Envoyer" />
+    </div>
+    <div>
+        <p id="validation" ondblclick="sendForm()">Envoyer données</p>
+    </div>
+</form>
+<script type="text/javascript">
+    var sendForm = function() {
+        var toto = getXHR();
+        toto.onreadystatechange = function() {
+            if(toto.readyState == 4 && (toto.status == 200 || toto.status == 0)) {
+                console.log(toto.responseText);
+            }
+        }
+
+        var name = document.getElementById('name').value;
+        var type = document.getElementById('type').value;
+        var years = document.getElementById('years').value;
+        var colors = document.getElementById('password').value;
+        var data = "name=" + name + "&type=" + type + "&years=" + years + "&colors=" + colors;
+        toto.open("POST", "validation.php", true);
+        toto.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        toto.send(data);
+    };
+</script>
+</body>
+</html>
